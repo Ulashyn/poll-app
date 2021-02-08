@@ -1,0 +1,60 @@
+<div class="register">
+  <p-card header="Register" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="firstName">First name</label>
+        <input
+          formControlName="firstName"
+          id="firstName"
+          type="firstName"
+          aria-describedby="firstName-help"
+          [ngClass]="{'ng-invalid ng-dirty': firstName.invalid && firstName.dirty}"
+          [style]="{'width': '100%'}"
+          pInputText />
+        <small id="firstName-help" class="p-error" *ngIf="firstName.invalid && firstName.dirty">First name is required</small>
+      </div>
+      <div class="p-field">
+        <label for="lastName">Last name</label>
+        <input
+          formControlName="lastName"
+          id="lastName"
+          type="lastName"
+          aria-describedby="lastName-help"
+          [ngClass]="{'ng-invalid ng-dirty': lastName.invalid && lastName.dirty}"
+          [style]="{'width': '100%'}"
+          pInputText />
+        <small id="lastName-help" class="p-error" *ngIf="lastName.invalid && lastName.dirty">Last name is required</small>
+      </div>
+      <div class="p-field">
+        <label for="username">User name</label>
+        <input
+          formControlName="username"
+          id="username"
+          type="username"
+          aria-describedby="username-help"
+          [ngClass]="{'ng-invalid ng-dirty': username.invalid && username.dirty}"
+          [style]="{'width': '100%'}"
+          pInputText />
+        <small id="username-help" class="p-error" *ngIf="username.invalid && username.dirty">Username is required</small>
+      </div>
+      <div class="p-field">
+        <label for="pasword">Password</label>
+        <input
+          formControlName="password"
+          id="password"
+          type="password"
+          aria-describedby="password-help"
+          [ngClass]="{'ng-invalid ng-dirty': password.invalid && password.dirty}"
+          [style]="{'width': '100%'}"
+          pPassword />
+        <small id="password-help" class="p-error" *ngIf="password.invalid && password.dirty">Password is required and must be at least 6 characters long</small>
+      </div>
+    </form>
+    <ng-template pTemplate="footer">
+      <div class="p-d-flex p-jc-between">
+        <p-button label="Register" icon="{{loginIcon}}" (onClick)="onSubmit()" [disabled]="loading"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" routerLink="../login"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

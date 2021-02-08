@@ -1,0 +1,11 @@
+.answer-question {
+  width: 100vw;
+  min-height: calc(100vh - 100px);
+  h3 {
+    margin-top: 0;
+  }
+
+  &__answered {
+    margin-bottom: 20px;
+  }
+}

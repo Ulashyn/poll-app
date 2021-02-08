@@ -1,0 +1,38 @@
+<div class="p-grid p-jc-center p-ai-center answer-question">
+  <p-card header="Poll" [style]="{'width': '25rem', 'margin-bottom': '2em'}" *ngIf="!isAnsvered">
+    <h3>Would You Rather</h3>
+    <div class="p-field-radiobutton">
+      <p-radioButton name="answer" value="{{question?.option1.id}}" [(ngModel)]="selectedValue" inputId="answer1"></p-radioButton>
+      <label for="answer1">{{question?.option1.text}}</label>
+    </div>
+    <div class="p-field-radiobutton">
+      <p-radioButton name="answer" value="{{question?.option2.id}}" [(ngModel)]="selectedValue" inputId="answer2"></p-radioButton>
+      <label for="answer2">{{question?.option2.text}}</label>
+    </div>
+    <div>Author: {{creator?.firstName}} {{creator?.lastName}}</div>
+    <ng-template pTemplate="footer">
+      <div class="p-d-flex p-jc-between">
+        <p-button label="Save" icon="{{loadingIcon}}" (onClick)="vote()" [disabled]="loading || !selectedValue"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" routerLink="/"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+  <p-card header="Poll" [style]="{'width': '25rem', 'margin-bottom': '2em'}" *ngIf="isAnsvered">
+    <h3>Would You Rather</h3>
+    <div class="answer-question__answered">
+      <p-fieldset legend="Answer 1">
+        <div class="answer-question__answered-option"><h3>{{question?.option1.text}}</h3></div>
+        <div class="answer-question__answered-users">Answered users: {{question?.option1.answeredUsers.length}}</div>
+        <div class="answer-question__answered-percent">Percent answered users: {{answeredPercent(question?.option1.answeredUsers.length)}}%</div>
+      </p-fieldset>
+    </div>
+    <div class="answer-question__answered">
+      <p-fieldset legend="Answer 2">
+        <div class="answer-question__answered-option"><h3>{{question?.option2.text}}</h3></div>
+        <div class="answer-question__answered-users">Answered users: {{question?.option2.answeredUsers.length}}</div>
+        <div class="answer-question__answered-percent">Percent answered users: {{answeredPercent(question?.option2.answeredUsers.length)}}%</div>
+      </p-fieldset>
+    </div>
+    <div>Author: {{creator?.firstName}} {{creator?.lastName}}</div>
+  </p-card>
+</div>

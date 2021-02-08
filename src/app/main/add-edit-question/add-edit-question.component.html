@@ -1,0 +1,33 @@
+<div class="p-grid p-jc-center p-ai-center add-edit">
+  <p-card header="{{cardTitle}}" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+    <div class="add-edit__question">Would You Rather?</div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="p-field" formGroupName="option1">
+        <h5>Option 1</h5>
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
+          formControlName="text"
+          [style]="{'width': '100%'}">
+        </textarea>
+      </div>
+      <div class="p-field" formGroupName="option2">
+        <h5>Option 2</h5>
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
+          formControlName="text"
+          [style]="{'width': '100%'}">
+        </textarea>
+      </div>
+    </form>
+    <ng-template pTemplate="footer">
+      <div class="p-d-flex p-jc-between">
+        <p-button label="Save" icon="{{loadingIcon}}" (onClick)="onSubmit()" [disabled]="loading"></p-button>
+        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" routerLink="/"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

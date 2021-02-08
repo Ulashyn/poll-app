@@ -1,0 +1,38 @@
+<div class="poll-list">
+  <p-button label="Add poll" routerLink="question/add"></p-button>
+
+  <p-tabView>
+    <p-tabPanel header="Unanswered polls">
+      <p-table [value]="unansweredQuestions" [loading]="loading">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Poll</th>
+            <th>Date</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-question>
+          <tr>
+            <td><p-button label="Would You Rather" styleClass="p-button-link" routerLink="question/{{question.id}}"></p-button></td>
+            <td>{{question.createDate | date:'M/d/yy, HH:mm z'}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-tabPanel>
+    <p-tabPanel header="Answered polls">
+      <p-table [value]="answeredQuestions" [loading]="loading">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Poll</th>
+            <th>Date</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-question>
+          <tr>
+            <td><p-button label="Would You Rather" styleClass="p-button-link" routerLink="question/{{question.id}}"></p-button></td>
+            <td>{{question.createDate | date:'M/d/yy, HH:mm z'}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-tabPanel>
+  </p-tabView>
+</div>

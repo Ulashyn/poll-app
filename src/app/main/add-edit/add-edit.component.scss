@@ -1,0 +1,18 @@
+.add-edit-user {
+  width: 100vw;
+  min-height: calc(100vh - 100px);
+  .sizes {
+    .p-inputtext {
+      display: block;
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .p-field * {
+    display: block;
+  }
+}

@@ -1,0 +1,23 @@
+<!-- nav -->
+<p-menubar [model]="items" *ngIf="user">
+  <div class="app-menu">
+    <div class="app-menu__user-info">
+      <div class="p-text-bold p-mr-2">{{user.firstName}}</div>
+      <div class="p-text-bold p-mr-2">{{user.lastName}}</div>
+    </div>
+    <button
+      type="button"
+      pButton
+      label="Logout"
+      icon="pi pi-sign-out"
+      style="margin-left:.25em"
+      (click)="logout()">
+    </button>
+  </div>
+</p-menubar>
+
+<!-- main app container -->
+<div class="app-container">
+  <p-toast></p-toast>
+  <router-outlet></router-outlet>
+</div>

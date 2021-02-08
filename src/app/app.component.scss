@@ -1,0 +1,11 @@
+.p-menuitem-link-active {
+  color: #2196F3;
+}
+
+.app-menu {
+  display: flex;
+  &__user-info {
+    display: flex;
+    align-items: center;
+  }
+}
