@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'question/add', component: AddEditQuestionComponent },
       { path: 'question/edit/:id', component: AddEditQuestionComponent },
       { path: 'question/:id', component: AnswerQuestionComponent },
-      { path: '**', component: PageNotFoundComponent}
+      // { path: '**', component: PageNotFoundComponent}
     ],
   },
 ];
